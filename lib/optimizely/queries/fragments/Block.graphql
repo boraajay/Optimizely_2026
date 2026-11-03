@@ -1,9 +1,18 @@
 fragment HeroBlockFragment on HeroBlock {
   title
+  description
   subtitle
   decorationColorsPrimary
   decorationColorsSecondary
   showDecoration
+  exploreAllPackagesDealsCTA{
+        text
+        title
+      }
+  viewLiveChannelGuideCTA{
+        text
+        title
+      }
 }
 
 fragment ContactBlockFragment on ContactBlock {
@@ -23,24 +32,48 @@ fragment LogosBlockFragment on LogosBlock {
 
 fragment PortfolioGridBlockFragment on PortfolioGridBlock {
   title
+  description
   items {
     __typename
-    ... on PortfolioItemBlock {
-      title
-      description
-      imageUrl
-      link
-    }
+        ... on PortfolioItemBlock {
+          channelsCount
+          description
+          imageUrl
+          link
+          monthlyPrices
+          pricePeriod
+          title
+          isPopular
+          badge
+          channelsIncludedList {
+            ... on portfolioChannelsIncluded {
+              channels
+            }
+          }
+        }
   }
 }
 
 fragment ServicesBlockFragment on ServicesBlock {
+  Title
+  Description
+  CtaButtonText
+  CtaUrl{
+        text
+        title
+      }
   services {
     __typename
     ... on ServiceItem {
       title
       description
       icon
+      BadgeClass
+      packageHighlights
+      ctaText{
+        text
+        title
+      }
     }
   }
 }
@@ -75,10 +108,22 @@ fragment StoryBlockFragment on StoryBlock {
   highlights
 }
 
+fragment StatusBlockFragment on StatusBlock {
+  __typename
+  statusItems {
+    ... on StatusBlockItems {
+    accent
+    label
+    value
+    }
+  }
+}
+
 fragment ItemsInContentArea on _IContent {
   __typename
   ...HeroBlockFragment
   ...ContactBlockFragment
+  ...StatusBlockFragment
   ...LogosBlockFragment
   ...PortfolioGridBlockFragment
   ...ServicesBlockFragment
@@ -87,3 +132,4 @@ fragment ItemsInContentArea on _IContent {
   ...AvailabilityBlockFragment
   ...StoryBlockFragment
 }
+ 

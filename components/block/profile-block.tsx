@@ -6,18 +6,21 @@ import { cva } from 'class-variance-authority'
 
 type ProfileBlockPropsV2 = ProfileBlockProps & BlockBase
 
-const backgroundVariants = cva('container mx-auto px-4 py-16', {
+const backgroundVariants = cva(
+  'container mx-auto rounded-2xl border border-white/10 px-1 py-16 text-white shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-950/40',
+  {
   variants: {
     colorScheme: {
-      default: 'border-none bg-[#f9e6f0] text-[#2d2d2d]',
-      primary: 'border-none bg-primary text-white',
-      secondary: 'border-none bg-secondary text-secondary-foreground',
+      default: 'bg-[#080b1b]',
+      primary: 'bg-[#0b1745]',
+      secondary: 'bg-[#101d38]',
     },
   },
   defaultVariants: {
     colorScheme: 'default',
   },
-})
+  }
+)
 
 export default function ProfileBlock({
   imageSrc,
@@ -32,7 +35,7 @@ export default function ProfileBlock({
     'default'
 
   return (
-    <section className="container mx-auto px-4 py-16">
+    <section className="container mx-auto bg-gradient-to-br from-[#050917] via-black to-[#0b1745] px-4 py-16 text-white">
       <Card
         className={backgroundVariants({
           colorScheme: colorScheme as 'default' | 'primary' | 'secondary',

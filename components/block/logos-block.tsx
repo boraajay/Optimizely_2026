@@ -7,9 +7,9 @@ import { castContent } from '@/lib/optimizely/types/typeUtils'
 
 export default function LogosBlock({ logos }: LogosBlockProps) {
   return (
-    <section className="container mx-auto px-4 py-16">
+    <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-black px-4 py-16">
       <div
-        className="flex flex-wrap justify-center gap-12"
+        className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-10 md:gap-16"
         data-epi-edit="logos"
       >
         {logos?.map((logo, index) => {
@@ -23,8 +23,11 @@ export default function LogosBlock({ logos }: LogosBlockProps) {
                 alt={safeLogoItem.alt || ''}
                 width={100}
                 height={40}
+                className="h-10 w-auto max-w-[150px] object-contain brightness-0 invert opacity-100 transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.65)] md:h-12"
               />
             </div>
+            
+            
           )
         })}
       </div>

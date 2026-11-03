@@ -21,7 +21,18 @@ query getFooter($locales: [Locales]) {
             }
           }
         }
-      }
+      }  
+      directTV {
+        title
+        description
+        appCTA {
+          ... on NavItem {
+            label
+            href
+          }
+        }
+      }    
     }
   }
 }
+ 

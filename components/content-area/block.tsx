@@ -5,6 +5,7 @@ import blocksMapperFactory from '@/lib/utils/block-factory'
 const AvailabilityBlock = dynamic(() => import('../block/availability-block'))
 const ContactBlock = dynamic(() => import('../block/contact-block'))
 const HeroBlock = dynamic(() => import('../block/hero-block'))
+const StatusBlock = dynamic(() => import('../block/status-block'))
 const LogosBlock = dynamic(() => import('../block/logos-block'))
 const PortfolioGridBlock = dynamic(
   () => import('../block/portfolio-grid-block')
@@ -19,6 +20,7 @@ export const blocks = {
   AvailabilityBlock,
   ContactBlock,
   HeroBlock,
+  StatusBlock,
   LogosBlock,
   PortfolioGridBlock,
   ProfileBlock,
@@ -28,3 +30,4 @@ export const blocks = {
 } as const
 
 export default blocksMapperFactory(blocks)
+ 
