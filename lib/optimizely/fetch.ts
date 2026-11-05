@@ -24,7 +24,7 @@ const optimizelyFetch = async <Response, Variables = object>({
   query,
   variables,
   headers,
-  cache = 'force-cache',
+  cache = 'no-store',
   preview,
   cacheTag,
 }: OptimizelyFetch<Variables>): Promise<
