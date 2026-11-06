@@ -13,7 +13,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params
   const locales = getValidLocale(locale)
-  const pageResp = await optimizely.GetStartPage({ locales })
+  const pageResp = await optimizely.GetStartPage({ locales, key: process.env.OPTIMIZELY_START_PAGE_KEY ?? "bda83cf7b5054a0c816606e7677d8196" })
   const page = pageResp.data?.StartPage?.item
   if (!page) {
     return {}
@@ -41,13 +41,16 @@ export default async function HomePage(props: {
     )
   }
 
-  const pageResponse = await optimizely.GetStartPage({ locales })
+  // const startPageUrl = process.env.OPTIMIZELY_START_PAGE_URL ?? "/directtv"
+  const startPageKey = process.env.OPTIMIZELY_START_PAGE_KEY ?? "bda83cf7b5054a0c816606e7677d8196"
+  const pageResponse = await optimizely.GetStartPage({ locales, key: startPageKey })
 
   const startPage = pageResponse.data?.StartPage?.item
   const blocks = (startPage?.blocks ?? []).filter(
     (block) => block !== null && block !== undefined
   )
-
+  console.log('startPage', startPage)
+  console.log('blocks', blocks)
   return (
     <>
       <Suspense>

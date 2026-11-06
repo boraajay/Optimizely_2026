@@ -5,14 +5,14 @@ fragment HeroBlockFragment on HeroBlock {
   decorationColorsPrimary
   decorationColorsSecondary
   showDecoration
-  exploreAllPackagesDealsCTA{
-        text
-        title
-      }
-  viewLiveChannelGuideCTA{
-        text
-        title
-      }
+  exploreAllPackagesDealsCTA {
+    text
+    title
+  }
+  viewLiveChannelGuideCTA {
+    text
+    title
+  }
 }
 
 fragment ContactBlockFragment on ContactBlock {
@@ -35,22 +35,22 @@ fragment PortfolioGridBlockFragment on PortfolioGridBlock {
   description
   items {
     __typename
-        ... on PortfolioItemBlock {
-          channelsCount
-          description
-          imageUrl
-          link
-          monthlyPrices
-          pricePeriod
-          title
-          isPopular
-          badge
-          channelsIncludedList {
-            ... on portfolioChannelsIncluded {
-              channels
-            }
-          }
+    ... on PortfolioItemBlock {
+      channelsCount
+      description
+      imageUrl
+      link
+      monthlyPrices
+      pricePeriod
+      title
+      isPopular
+      badge
+      channelsIncludedList {
+        ... on portfolioChannelsIncluded {
+          channels
         }
+      }
+    }
   }
 }
 
@@ -58,10 +58,10 @@ fragment ServicesBlockFragment on ServicesBlock {
   Title
   Description
   CtaButtonText
-  CtaUrl{
-        text
-        title
-      }
+  CtaUrl {
+    text
+    title
+  }
   services {
     __typename
     ... on ServiceItem {
@@ -70,7 +70,7 @@ fragment ServicesBlockFragment on ServicesBlock {
       icon
       BadgeClass
       packageHighlights
-      ctaText{
+      ctaText {
         text
         title
       }
@@ -112,9 +112,100 @@ fragment StatusBlockFragment on StatusBlock {
   __typename
   statusItems {
     ... on StatusBlockItems {
-    accent
-    label
-    value
+      accent
+      label
+      value
+    }
+  }
+}
+
+fragment ImageBannerFragment on imageBanner {
+  Title
+  Description
+  CTA {
+    title
+    text
+    url {
+      default
+      base
+    }
+  }
+  BannerImage {
+    key
+    url {
+      default
+    }
+  }
+}
+fragment MiniPacksAvailableFragment on MiniPacksAvailable {
+  _fulltext
+  Title
+  MiniPacksavailableItems {
+    ... on MiniPacksavailableItem {
+      _deleted
+      _modified
+      Title
+      Badge
+      Description
+      SpecialPriceText
+      SpecialPrice
+      ShortDescription
+      PricePeriod
+      Price
+      PackagesImage {
+        key
+        url {
+          default
+        }
+      }
+    }
+  }
+}
+
+fragment AYearOfNetflixBannerFragment on AYearOfNetflixBanner {
+  _deleted
+  _modified
+  Title
+  Description
+  BannerImage {
+    key
+    url {
+      default
+    }
+  }
+  ExplorePlanCTA {
+    title
+    url {
+      default
+    }
+  }
+  TryTheExperienceCTA {
+    title
+    url {
+      default
+    }
+  }
+  TermsDescription
+  TermsCTA {
+    title
+    url {
+      default
+    }
+  }
+}
+fragment ProofOfGenrePackFragment on ProofOfGenrePack {
+  Title
+  ProofOfGenrePackItems {
+    ... on ProofOfGenrePackItem {
+      Comment
+      CommentDescription
+      CommenterName
+    }
+  }
+  ShopGenreCTA {
+    title
+    url {
+      default
     }
   }
 }
@@ -131,5 +222,8 @@ fragment ItemsInContentArea on _IContent {
   ...ProfileBlockFragment
   ...AvailabilityBlockFragment
   ...StoryBlockFragment
+  ...ImageBannerFragment
+  ...MiniPacksAvailableFragment
+  ...AYearOfNetflixBannerFragment
+  ...ProofOfGenrePackFragment
 }
- 
