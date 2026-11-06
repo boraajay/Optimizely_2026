@@ -119,7 +119,7 @@ fragment StatusBlockFragment on StatusBlock {
   }
 }
 
-fragment ImageBannerFragment on imageBanner {
+fragment ImageBannerFragment on ImageBanner {
   Title
   Description
   CTA {

@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+/.lib/optimizely/types/generated
 .pnp.*
 .yarn/*
 !.yarn/patches

@@ -2,25 +2,9 @@ import React from 'react';
 import { MiniPacksavailableItem, MiniPacksAvailable  as MiniPacksProps } from '@/lib/optimizely/types/generated'
 import { castContent, SafeContent } from '@/lib/optimizely/types/typeUtils';
 import { stat } from 'fs/promises';
+import { InfoIcon } from 'lucide-react';
 
-
-const InfoIcon = () => (
-  <svg 
-    className="w-5 h-5 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer" 
-    fill="none" 
-    stroke="currentColor" 
-    viewBox="0 0 24 24"
-  >
-    <path 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      strokeWidth="1.5" 
-      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
-    />
-  </svg>
-);
-
-export default function imageBanner({ Title, MiniPacksavailableItems}: MiniPacksProps) {
+export default function MiniPacksAvailable({ Title, MiniPacksavailableItems}: MiniPacksProps) {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-10 bg-slate-50/50">
       {/* Section Title */}
@@ -106,7 +90,7 @@ export default function imageBanner({ Title, MiniPacksavailableItems}: MiniPacks
                             {/* Info Button */}
                             <button
                                 type="button"
-                                onClick={() => onInfoClick && onInfoClick(statItem)}
+                                // onClick={() => onInfoClick && onInfoClick(statItem)}
                                 className="p-1 rounded-full hover:bg-blue-100/50 focus:outline-none"
                                 aria-label="More information">
                                 <InfoIcon />

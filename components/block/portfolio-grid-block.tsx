@@ -40,7 +40,7 @@ export default function PortfolioGridBlock({
     }
     router.push(`/packages?plan=${encodeURIComponent(pkg.id)}`)
   }
-
+console.log('PortfolioGridBlock props:', { title, description, items })
   return (
     <section className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-black px-4 py-16 text-white before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-br before:from-[#050917] before:via-black before:to-[#0b1745] before:content-[''] lg:px-8">
       <div className="mx-auto mb-12 max-w-2xl text-center">

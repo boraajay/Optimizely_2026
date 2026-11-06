@@ -14,7 +14,7 @@ function ContentAreaMapper({
 }) {
   if (isVisualBuilder) {
     if (!experienceElements || experienceElements.length === 0) return null
-
+    console.log('experienceElements', experienceElements)
     return (
       <>
         {experienceElements?.map(
@@ -39,7 +39,7 @@ function ContentAreaMapper({
     )
   }
   if (!blocks || blocks.length === 0) return null
-
+  console.log('blocks', blocks)
   return (
     <>
       {blocks?.map(({ __typename, ...props }, index) => (

@@ -14,6 +14,10 @@ const ProfileBlock = dynamic(() => import('../block/profile-block'))
 const ServicesBlock = dynamic(() => import('../block/services-block'))
 const StoryBlock = dynamic(() => import('../block/story-block'))
 const TestimonialsBlock = dynamic(() => import('../block/testimonials-block'))
+const ImageBannerBlock = dynamic(() => import('../block/imageBanner-block'))
+const AYearOfNetflixBanner = dynamic(() => import('../block/AYearOfNetflix-block'))
+const MiniPacksAvailable = dynamic(() => import('../block/miniPacks-block'))
+const ProofOfGenrePack = dynamic(() => import('../block/proofGenrePack-block'))
 
 // Map the dynamically imported blocks
 export const blocks = {
@@ -27,6 +31,10 @@ export const blocks = {
   ServicesBlock,
   StoryBlock,
   TestimonialsBlock,
+  ImageBannerBlock,
+  AYearOfNetflixBanner,
+  // MiniPacksAvailable,
+  ProofOfGenrePack
 } as const
 
 export default blocksMapperFactory(blocks)

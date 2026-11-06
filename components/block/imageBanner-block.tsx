@@ -1,13 +1,13 @@
 import React from 'react';
 import { ImageBanner  as ImageBannerProps } from '@/lib/optimizely/types/generated'
 
-export default function imageBanner({
+export default function ImageBanner({
   BannerImage, CTA, Description, Title}: ImageBannerProps) {
   const onPayClick = () => {
     console.log("Pay without signing in clicked!");
   };
 
-
+console.log('imageBanner props:', { BannerImage, CTA, Description, Title });
   const content = {
     title: Title ?? "Traveling Abroad? You may not be able to make a payment.",
     paragraphs: Description ?? "If you're traveling abroad, you may encounter issues making payments due to international restrictions or security measures. To ensure a smooth experience, we recommend using our 'Pay without signing in' option, which allows you to complete your transaction without any hassle."

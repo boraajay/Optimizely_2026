@@ -23,10 +23,10 @@ export const netflixPromoData = {
 import React from 'react';
 import { AYearOfNetflixBanner as AYearOfNetflixBannerProps } from './../../lib/optimizely/types/generated';
 
-export default function imageBanner({ Title,   Description,  BannerImage ,  ExplorePlanCTA,  TryTheExperienceCTA , TermsDescription, TermsCTA}: AYearOfNetflixBannerProps) {
+export default function AYearOfNetflixBanner({ Title,   Description,  BannerImage ,  ExplorePlanCTA,  TryTheExperienceCTA , TermsDescription, TermsCTA}: AYearOfNetflixBannerProps) {
   const onExplorePlansClick = () => console.log("Explore plans clicked!");
   const onTryExperienceClick = () => console.log("Try the experience clicked!");
-  
+
   return (
    <section className="w-full max-w-6xl mx-auto px-4 py-8">
      {/* Main Card Container */}
