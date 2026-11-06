@@ -1,5 +1,9 @@
-query GetStartPage($locales: [Locales]) {
-  StartPage(locale: $locales) {
+query GetStartPage($locales: [Locales], $key: String) {
+  StartPage(
+    locale: $locales
+    where: { _metadata: { key: { eq: $key } } }
+    limit: 1
+    ) {
     item {
       title
       shortDescription
