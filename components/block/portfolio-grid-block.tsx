@@ -9,7 +9,6 @@ import {
 } from '@/lib/optimizely/types/generated'
 import { castContent, SafeContent } from '@/lib/optimizely/types/typeUtils'
 import { Icon } from '../ui/Icon'
-import { useCart } from '../content-area/cartContext'
 
 // Local shape, defined here so no separate types file is needed
 interface SelectedPackage {
