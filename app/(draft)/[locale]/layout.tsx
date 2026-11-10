@@ -34,7 +34,7 @@ export default async function RootLayout({
           src={`${process.env.NEXT_PUBLIC_CMS_URL}/util/javascript/communicationinjector.js`}
         />
         <DraftActions />
-        <main className="container mx-auto px-4">{children}</main>
+        <main className="container mx-auto">{children}</main>
       </body>
     </html>
   )

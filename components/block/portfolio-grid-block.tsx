@@ -9,6 +9,7 @@ import {
 } from '@/lib/optimizely/types/generated'
 import { castContent, SafeContent } from '@/lib/optimizely/types/typeUtils'
 import { Icon } from '../ui/Icon'
+import { useCart } from '../content-area/cartContext'
 
 // Local shape, defined here so no separate types file is needed
 interface SelectedPackage {
@@ -30,16 +31,25 @@ export default function PortfolioGridBlock({
 }: PortfolioGridBlockProps) {
   const router = useRouter()
   const [selectedPackage, setSelectedPackage] = useState<SelectedPackage | null>(null)
+const { addToCart } = useCart()
 
-  const handleSelect = (pkg: SelectedPackage) => {
-    setSelectedPackage(pkg)
-    try {
-      sessionStorage.setItem(SELECTED_PACKAGE_KEY, JSON.stringify(pkg))
-    } catch {
-      /* storage can be unavailable (private mode); the query param still works */
-    }
-    router.push(`/packages?plan=${encodeURIComponent(pkg.id)}`)
+  const handleSelectPackage = (pkg: { id: string; name: string; price: number }) => {
+    addToCart({
+      id: pkg.id,
+      name: pkg.name,
+      price: pkg.price,
+      type: 'package',
+    })
   }
+  // const handleSelect = (pkg: SelectedPackage) => {
+  //   setSelectedPackage(pkg)
+  //   try {
+  //     sessionStorage.setItem(SELECTED_PACKAGE_KEY, JSON.stringify(pkg))
+  //   } catch {
+  //     /* storage can be unavailable (private mode); the query param still works */
+  //   }
+  //   router.push(`/packages?plan=${encodeURIComponent(pkg.id)}`)
+  // }
 console.log('PortfolioGridBlock props:', { title, description, items })
   return (
     <section className="relative isolate left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-black px-4 py-16 text-white before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-br before:from-[#050917] before:via-black before:to-[#0b1745] before:content-[''] lg:px-8">
@@ -116,7 +126,8 @@ console.log('PortfolioGridBlock props:', { title, description, items })
               </div>
 
               <button
-                onClick={() => handleSelect(pkg)}
+                // onClick={() => handleSelect(pkg)}
+                onClick={() => handleSelectPackage({ id: 'pkg-1', name: 'Ultimate Cable Pack', price: 69.99 })}
                 className={`w-full rounded-full py-3 font-bold text-xs transition-all focus-visible-custom ${
                   isSelected
                     ? 'bg-[#006dff] text-white shadow-lg shadow-blue-900/40 hover:bg-blue-600'
