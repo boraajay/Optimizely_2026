@@ -87,3 +87,21 @@ export interface SportsHighlight {
   description: string;
   availability: string;
 }
+
+export interface GenerPackChannel {
+  Id?: string | null;
+  category?: string | null;
+  currentShow?: string | null;
+  name?: string | null;
+  number?: number | string | null;
+  progressPercent?: number | null;
+  timeRange?: string | null;
+}
+
+export interface ShowGenrePackChannelsData {
+  _deleted?: boolean | null;
+  _modified?: string | null;
+  Title?: string | null;
+  SubTitle?: string | null;
+  ShowGenrePackItems?: (GenerPackChannel | null)[] | null;
+}

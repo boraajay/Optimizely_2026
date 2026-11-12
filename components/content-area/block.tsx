@@ -21,6 +21,7 @@ const ProofOfGenrePack = dynamic(() => import('../block/proofGenrePack-block'))
 const ConnectBlock = dynamic(() => import('../block/connect-block'))
 const PackageCardsCarousel = dynamic(() => import('../block/packagesCardscarousel-block'))
 const HelpSupportBlock = dynamic(() => import('../block/HelpSupport-Block'))
+const ShowGenrePackChannels = dynamic(() => import('../block/ShowGenrePackChannels-block'))
 
 // Map the dynamically imported blocks
 export const blocks = {
@@ -40,7 +41,8 @@ export const blocks = {
   ProofOfGenrePack,
   ConnectBlock,
   PackageCardsCarousel,
-  HelpSupportBlock
+  HelpSupportBlock,
+  ShowGenrePackChannels
 } as const
 
 export default blocksMapperFactory(blocks)

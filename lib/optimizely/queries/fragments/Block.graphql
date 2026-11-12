@@ -267,7 +267,6 @@ fragment PackageCardsCarouselFragment on PackageCardsCarousel {
               SpecialPriceText
               Subtitle
               Title
-              badge
             }
           }
         }
@@ -294,6 +293,24 @@ fragment HelpSupportBlockFragment on HelpSupportBlock {
           }
         }
 
+fragment ShowGenrePackChannelsFragment on ShowGenrePackChannels {
+          _deleted
+          _modified
+          Title
+          SubTitle
+          ShowGenrePackItems {
+            ... on GenerPackChannel {
+              Id
+              category
+              currentShow
+              name
+              number
+              progressPercent
+              timeRange              
+            }
+          }
+        }
+
 fragment ItemsInContentArea on _IContent {
   __typename
   ...HeroBlockFragment
@@ -313,4 +330,5 @@ fragment ItemsInContentArea on _IContent {
   ...ConnectBlockFragment
   ...PackageCardsCarouselFragment
   ...HelpSupportBlockFragment
+  ...ShowGenrePackChannelsFragment
 }
