@@ -25,7 +25,6 @@ export async function generateMetadata(props: {
     locales: [locales],
     slug: formattedSlug,
   })
-  console.log('generateMetadata data', data)
   if (errors) {
     return {}
   }

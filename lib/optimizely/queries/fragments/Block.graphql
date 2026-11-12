@@ -210,106 +210,104 @@ fragment ProofOfGenrePackFragment on ProofOfGenrePack {
   }
 }
 
-
 fragment ConnectBlockFragment on ConnectBlock {
-          Description
-          Title
-          ConnectItems {
-            ... on ConnectItem {
-              _deleted
-              _modified
-              Title
-              Description
-              ConnectImage {
-                key
-                url {
-                  default
-                }
-              }
-              CTA {
-                title
-                url {
-                  default
-                }
-              }
-            }
-          }
+  Description
+  Title
+  ConnectItems {
+    ... on ConnectItem {
+      _deleted
+      _modified
+      Title
+      Description
+      ConnectImage {
+        key
+        url {
+          default
         }
+      }
+      CTA {
+        title
+        url {
+          default
+        }
+      }
+    }
+  }
+}
 
 fragment PackageCardsCarouselFragment on PackageCardsCarousel {
-          Title
-          PackageItems {
-            ... on PackageCardItem {
-              _deleted
-              _modified
-              Badge
-              CTA {
-                title
-                url {
-                  default
-                }
-              }
-              ChannelLogos {
-                key
-                url {
-                  default
-                }
-              }
-              PosterImages {
-                key
-                url {
-                  default
-                }
-              }
-              Price
-              PricePeriod
-              SpecialPrice
-              SpecialPriceText
-              Subtitle
-              Title
-            }
-          }
+  Title
+  PackageItems {
+    ... on PackageCardItem {
+      _deleted
+      _modified
+      Badge
+      CTA {
+        title
+        url {
+          default
         }
+      }
+      ChannelLogos {
+        key
+        url {
+          default
+        }
+      }
+      PosterImages {
+        key
+        url {
+          default
+        }
+      }
+      Price
+      PricePeriod
+      SpecialPrice
+      SpecialPriceText
+      Subtitle
+      Title
+    }
+  }
+}
 
 fragment HelpSupportBlockFragment on HelpSupportBlock {
-          Title
-          SearchPlaceholder
-          Categories {
-            ... on SupportCategoryItem {
-              Title
-              Url {
-                title
-                url {
-                  default
-                }
-              }
-              CategoryImage {
-                key
-                url {
-                  default
-                }
-              }
-            }
-          }
+  Title
+  SearchPlaceholder
+  Categories {
+    ... on SupportCategoryItem {
+      Title
+      Url {
+        title
+        url {
+          default
         }
+      }
+      CategoryImage {
+        key
+        url {
+          default
+        }
+      }
+    }
+  }
+}
 
 fragment ShowGenrePackChannelsFragment on ShowGenrePackChannels {
-          _deleted
-          _modified
-          Title
-          SubTitle
-          ShowGenrePackItems {
-            ... on GenerPackChannel {
-              Id
-              category
-              currentShow
-              name
-              number
-              progressPercent
-              timeRange              
-            }
-          }
-        }
+  Title
+  SubTitle
+  ChannelCategories
+  ShowGenrePackItems {
+    ... on GenerPackChannel {
+      Id
+      category
+      currentShow
+      name
+      number
+      progressPercent
+      timeRange
+    }
+  }
+}
 
 fragment ItemsInContentArea on _IContent {
   __typename
